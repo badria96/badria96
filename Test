@@ -132,7 +132,7 @@ function makeCors(session_token) {
             },
             "status": "Authenticated",
             "session_token": "xxxxxxxxx8a4c07773a5454f946",
-            "expires_at": "2016/01/26 02:21:47 +0000"
+            "expires_at": "2022/01/12 10:22:21 +0000"
         }
     ]
 }
