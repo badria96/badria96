@@ -1,0 +1,140 @@
+{
+   "username_or_email":"telypay",
+   "password":"password123",
+   "subdomain":"telypay"
+}
+
+
+{
+    "status": {
+        "type": "success",
+        "message": "Success",
+        "code": 200,
+        "error": false
+    },
+    "data": [
+        {
+            "status": "Authenticated",
+            "user": {
+                "username": "telypay",
+                "email": "telypay@gmail.com",
+                "firstname": "badria",
+                "id": 88888888,
+                "lastname": "almamari"
+            },
+            "return_to_url": null,
+            "expires_at": "2022/01/12 10:22:21 +0000",
+            "session_token": "9x8869x31134x7906x6x54474x21x18xxx90857x"
+        }
+    ]
+}
+
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <p>Auth API Test</p>
+        <form action=
+         "https://{your_subdomain}.onelogin.com/session_via_api_token" method="POST">
+            <input type="hidden" name="session_token" value="{your session token value}">
+            <input type="submit" placeholder="GO">
+            <input id="auth_token" type="hidden">
+        </form>
+    </body>
+</html>
+
+
+function makeCors(session_token) {
+   var xhr = new XMLHttpRequest();
+   xhr.withCredentials = true;
+   method = "POST";
+   var url = "https://{your_subdomain}.onelogin.com/session_via_api_token";
+   xhr.open(method, url, true);
+   xhr.setRequestHeader("Content-Type", "application/json");
+   body = {"session_token": session_token};
+   xhr.send(JSON.stringify(body));
+ };   
+
+
+{
+    "status": {
+        "type": "success",
+        "code": 200,
+        "message": "MFA is required for this user",
+        "error": false
+    },
+    "data": [
+        {
+            "callback_url": "https://api.us.onelogin.com/api/1/verify_factor",
+            "user": {
+                "email": "telypay@gmail.com",
+                "username": "telypay",
+                "lastname": "almamari",
+                "firstname": "badria",
+                "id": 88888888
+            },
+            "devices": [
+                {
+                    "device_type": "Google Authenticator",
+                    "device_id": 222222
+                },
+                {
+                    "device_type": "OneLogin OTP SMS",
+                    "device_id": 999999
+                }
+            ],
+            "state_token": "xx5x2x91331x3x3x341xx51176x7xxx182x65xxx"
+        }
+    ]
+}
+
+{
+    "device_id": "999999",
+    "state_token": "xx5x2x91331x3x3x341xx51176x7xxx182x65xxx"
+}
+
+{
+    "status": {
+        "type": "pending",
+        "code": 200,
+        "message": "SMS token sent to your mobile device. Authentication pending.",
+        "error": false
+    }
+}
+
+
+{
+    "device_id": "222222",
+    "state_token": "xx5x2x91331x3x3x341xx51176x7xxx182x65xxx",
+    "otp_token": "123456"
+}
+
+
+{
+    "status": {
+        "type": "success",
+        "code": 200,
+        "message": "Success",
+        "error": false
+    },
+    "data": [
+        {
+            "return_to_url": null,
+            "user": {
+                "username": "telypay",
+                "email": "telypay@gmail.com",
+                "firstname": "badria",
+                "lastname": "almamari",
+                "id": 88888888
+            },
+            "status": "Authenticated",
+            "session_token": "xxxxxxxxx8a4c07773a5454f946",
+            "expires_at": "2016/01/26 02:21:47 +0000"
+        }
+    ]
+}
+
+
